@@ -31,7 +31,7 @@ Pass `process.cwd()` to emulate the first form.
 
 ## Related
 
-- [pkg-open](npm.im/pkg-open) - open homepage by package name.
+- [pkg-open](http://npm.im/pkg-open) - open homepage by package name.
 - [git-open](https://github.com/paulirish/git-open) - open homepage for a Git repository.
 
 `pkg-open` doesn't take into account local packages and thus has to perform additional network requests.
