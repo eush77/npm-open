@@ -22,9 +22,22 @@ var pkgFromDirectory = function (directory, cb) {
 };
 
 
+var homepage = function (pkg) {
+  if (pkg.homepage) {
+    return pkg.homepage;
+  }
+
+  if (pkg.repository && pkg.repository.url) {
+    return pkg.repository.url;
+  }
+
+  throw new Error('Unable to determine the home page.');
+};
+
+
 module.exports = function (directory) {
   pkgFromDirectory(directory, function (err, pkg) {
     if (err) throw err;
-    opn(pkg.homepage);
+    opn(homepage(pkg));
   });
 };
