@@ -23,6 +23,12 @@ For a specific package:
 $ npm-open <directory>
 ```
 
+## API
+
+### `npmOpen(directory)`
+
+Pass `process.cwd()` to emulate the first form.
+
 ## Related
 
 - [pkg-open](npm.im/pkg-open) - open homepage by package name.
@@ -30,7 +36,7 @@ $ npm-open <directory>
 
 `pkg-open` doesn't take into account local packages and thus has to perform additional network requests.
 
-`git-open` works only for git repositories (but npm-installed packages lack `.git`) and can't open the arbitrary home pages since its knowledge is limited by git remotes.
+`git-open` works only for git repositories (but npm-installed packages lack `.git`) and can't open the arbitrary home pages since its knowledge is limited to git remotes.
 
 ## Install
 
