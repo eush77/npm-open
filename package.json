@@ -1,0 +1,26 @@
+{
+  "name": "npm-open",
+  "version": "0.0.0",
+  "description": "Open homepage for npm package in the browser, github or website",
+  "author": "Eugene Sharygin <eush77@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/eush77/npm-open",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eush77/npm-open"
+  },
+  "bugs": {
+    "url": "https://github.com/eush77/npm-open/issues"
+  },
+  "keywords": [
+    "npm",
+    "project",
+    "package",
+    "open",
+    "homepage",
+    "repository",
+    "github"
+  ],
+  "dependencies": {},
+  "devDependencies": {}
+}
