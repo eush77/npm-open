@@ -24,10 +24,12 @@ var expectThisUrl = function (theUrl, tests) {
 
 
 test('npm-open', expectThisUrl('https://github.com/eush77/npm-open', [
-  function () { npmOpen(process.cwd()); }
+  function () { npmOpen(process.cwd()); },
+  function () { npmOpen(__dirname); },
 ]));
 
 
 test('npm-open --npm', expectThisUrl('http://npm.im/npm-open', [
-  function () { npmOpen.npm(process.cwd()); }
+  function () { npmOpen.npm(process.cwd()); },
+  function () { npmOpen.npm(__dirname); },
 ]));
