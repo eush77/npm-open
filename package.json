@@ -8,6 +8,9 @@
   "bin": {
     "npm-open": "cli.js"
   },
+  "scripts": {
+    "test": "tape test/**.js"
+  },
   "homepage": "https://github.com/eush77/npm-open",
   "repository": {
     "type": "git",
@@ -29,5 +32,7 @@
     "npmconf": "^2.1.1",
     "opn": "^1.0.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "tape": "^3.5.0"
+  }
 }
