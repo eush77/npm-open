@@ -35,9 +35,23 @@ var homepage = function (pkg) {
 };
 
 
-module.exports = function (directory) {
-  pkgFromDirectory(directory, function (err, pkg) {
-    if (err) throw err;
-    opn(homepage(pkg));
-  });
+var npmUrl = function (pkg) {
+  if (!pkg.name) {
+    throw new Error('Unable to determine package name.');
+  }
+
+  return 'http://npm.im/' + pkg.name;
 };
+
+
+var npmOpener = function (getUrl) {
+  return function (directory) {
+    pkgFromDirectory(directory, function (err, pkg) {
+      if (err) throw err;
+      opn(getUrl(pkg));
+    });
+  };
+};
+
+module.exports = npmOpener(homepage);
+module.exports.npm = npmOpener(npmUrl);
