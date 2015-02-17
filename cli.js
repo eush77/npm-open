@@ -22,6 +22,10 @@ var openCurrentProject = function (npm) {
 
 
 process.exitCode = (function (argv) {
+  if (argv[0] == '--help') {
+    return usage();
+  }
+
   var npm;
   if (argv[0] == '--npm') {
     npm = true;
