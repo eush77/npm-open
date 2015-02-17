@@ -13,21 +13,25 @@ A command-line utility to open the package's homepage (GitHub repository or a we
 
 From any of the project's directories:
 
-```js
-$ npm-open
+```
+$ npm-open [--npm]
 ```
 
 For a specific package:
 
-```js
-$ npm-open <directory>
 ```
+$ npm-open [--npm] <directory>
+```
+
+Add `--npm` flag to open the page on [npmjs.org](http://npmjs.org), if this is what you really want.
 
 ## API
 
 ### `npmOpen(directory)`
 
 Pass `process.cwd()` to emulate the first form.
+
+### `npmOpen.npm(directory)`
 
 ## Related
 
