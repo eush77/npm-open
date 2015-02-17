@@ -1,0 +1,10 @@
+{
+  "name": "fizzbuzz",
+  "version": "0.0.1",
+  "description": "Spotify for arithmetics",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fizzbuzz/fizzbuzz"
+  },
+  "homepage": "http://fizzbuzz.io"
+}
