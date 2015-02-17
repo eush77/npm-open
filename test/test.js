@@ -6,21 +6,28 @@ var opn = require('./mock/opn').install()
 var test = require('tape');
 
 
-test('npm-open', function (t) {
-  opn.once(function (url) {
-    t.equal(url, 'https://github.com/eush77/npm-open');
-    t.end();
-  });
+var expectThisUrl = function (theUrl, tests) {
+  return function (t) {
+    if (!tests.length) {
+      t.end();
+      return;
+    }
 
-  npmOpen(process.cwd());
-});
+    opn.once(function (url) {
+      t.equal(url, theUrl, url);
+      expectThisUrl(theUrl, tests)(t);
+    });
+
+    tests.shift()();
+  };
+};
 
 
-test('npm-open --npm', function (t) {
-  opn.once(function (url) {
-    t.equal(url, 'http://npm.im/npm-open');
-    t.end();
-  });
+test('npm-open', expectThisUrl('https://github.com/eush77/npm-open', [
+  function () { npmOpen(process.cwd()); }
+]));
 
-  npmOpen.npm(process.cwd());
-});
+
+test('npm-open --npm', expectThisUrl('http://npm.im/npm-open', [
+  function () { npmOpen.npm(process.cwd()); }
+]));
