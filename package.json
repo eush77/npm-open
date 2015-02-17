@@ -11,6 +11,10 @@
   "scripts": {
     "test": "tape test/**.js"
   },
+  "files": [
+    "cli.js",
+    "index.js"
+  ],
   "homepage": "https://github.com/eush77/npm-open",
   "repository": {
     "type": "git",
