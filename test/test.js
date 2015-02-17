@@ -15,32 +15,37 @@ var expectThisUrl = function (theUrl, tests) {
       return;
     }
 
+    var cwd;
+
     opn.once(function (url) {
-      t.equal(url, theUrl, url);
+      var msg = '/' + path.relative(process.cwd(), cwd) + ', ' + url;
+      t.equal(url, theUrl, msg);
       expectThisUrl(theUrl, tests)(t);
     });
 
-    tests.shift()();
+    tests.shift()(function (dir) {
+      return cwd = dir;
+    });
   };
 };
 
 
 test('npm-open', expectThisUrl('https://github.com/eush77/npm-open', [
-  function () { npmOpen(process.cwd()); },
-  function () { npmOpen(__dirname); },
+  function (_) { npmOpen(_(process.cwd())); },
+  function (_) { npmOpen(_(__dirname)); },
 ]));
 
 test('npm-open --npm', expectThisUrl('http://npm.im/npm-open', [
-  function () { npmOpen.npm(process.cwd()); },
-  function () { npmOpen.npm(__dirname); },
+  function (_) { npmOpen.npm(_(process.cwd())); },
+  function (_) { npmOpen.npm(_(__dirname)); },
 ]));
 
 test('npm-open <directory>', expectThisUrl('http://fizzbuzz.io', [
-  function () { npmOpen(path.join(__dirname, 'fizzbuzz')); },
-  function () { npmOpen(path.join(__dirname, 'fizzbuzz/lib')); },
+  function (_) { npmOpen(_(path.join(__dirname, 'fizzbuzz'))); },
+  function (_) { npmOpen(_(path.join(__dirname, 'fizzbuzz/lib'))); },
 ]));
 
 test('npm-open --npm <directory>', expectThisUrl('http://npm.im/fizzbuzz', [
-  function () { npmOpen.npm(path.join(__dirname, 'fizzbuzz')); },
-  function () { npmOpen.npm(path.join(__dirname, 'fizzbuzz/lib')); },
+  function (_) { npmOpen.npm(_(path.join(__dirname, 'fizzbuzz'))); },
+  function (_) { npmOpen.npm(_(path.join(__dirname, 'fizzbuzz/lib'))); },
 ]));
