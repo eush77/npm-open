@@ -9,7 +9,7 @@
     "npm-open": "cli.js"
   },
   "scripts": {
-    "test": "tape test/**.js"
+    "test": "tape test/*.js"
   },
   "files": [
     "cli.js",

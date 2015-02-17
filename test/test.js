@@ -1,6 +1,6 @@
 'use strict';
 
-var opn = require('./opn-mock').install()
+var opn = require('./mock/opn').install()
   , npmOpen = require('..');
 
 var test = require('tape');
