@@ -2,10 +2,12 @@
 
 # npm-open
 
-[![Dependency Status][david-badge]][david]
+[![Build Status][travis-badge]][travis] [![Dependency Status][david-badge]][david]
 
 A command-line utility to open the package's homepage (GitHub repository or a website) in the browser.
 
+[travis]: https://travis-ci.org/eush77/npm-open
+[travis-badge]: https://travis-ci.org/eush77/npm-open.svg
 [david]: https://david-dm.org/eush77/npm-open
 [david-badge]: https://david-dm.org/eush77/npm-open.png
 
